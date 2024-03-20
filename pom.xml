@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>cardapio</artifactId>
+	<artifactId>pagagamento-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cardapio</name>
-	<description>Api de cardapio</description>
+	<name>pagagamento-api</name>
+	<description>Api de pagamento</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
