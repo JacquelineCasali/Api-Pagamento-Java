@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.api.awpag.domain.exception.NegocioException;
 import com.api.awpag.domain.model.Cliente;
 import com.api.awpag.domain.service.CadastroClienteService;
-import com.api.awpag.repository.ClienteRepository;
+import com.api.awpag.domain.repository.ClienteRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,7 +32,7 @@ public class ClienteController {
 	}
 
 //	ResponseEntity resposta
-	@GetMapping("/{id}")
+@GetMapping("/{id}")
 	// implementar metodos
 	public  ResponseEntity <Cliente> buscar(@PathVariable Long id) {
 		Optional<Cliente> cliente= clienteRepository.findById(id);

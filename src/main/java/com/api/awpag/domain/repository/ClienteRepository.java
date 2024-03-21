@@ -1,4 +1,4 @@
-package com.api.awpag.repository;
+package com.api.awpag.domain.repository;
 
 import com.api.awpag.domain.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
