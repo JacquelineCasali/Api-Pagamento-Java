@@ -1,11 +1,13 @@
-package com.api.awpag.domain.model;
+package com.pagamento.domain.model;
 
 
 
 
+import com.pagamento.domain.validation.ValidationGrupos;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,7 +21,9 @@ import lombok.Setter;
 @Setter
 
 public class Cliente {
-@EqualsAndHashCode.Include
+    //para validação em cascata
+    @NotNull(groups= ValidationGrupos.ClienteId.class)
+    @EqualsAndHashCode.Include
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,7 +39,6 @@ public class Cliente {
     private String email;
     @NotBlank
     @Size(max = 20)
-//    @Email formato correto
 
     private String telefone;
 

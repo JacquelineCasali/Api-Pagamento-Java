@@ -1,8 +1,8 @@
-package com.api.awpag.domain.service;
+package com.pagamento.domain.service;
 
-import com.api.awpag.domain.exception.NegocioException;
-import com.api.awpag.domain.model.Cliente;
-import com.api.awpag.domain.repository.ClienteRepository;
+import com.pagamento.domain.exception.NegocioException;
+import com.pagamento.domain.model.Cliente;
+import com.pagamento.domain.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +19,7 @@ public class CadastroClienteService {
     }
     @Transactional
     public Cliente salvar(Cliente cliente) {
+//        verificando se o email existe
         boolean emailEmUso = clienteRepository.findByEmail(cliente.getEmail())
                 .filter(c -> !c.equals(cliente))
                 .isPresent();

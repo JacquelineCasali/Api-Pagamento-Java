@@ -1,12 +1,11 @@
-package com.api.awpag.controller;
+package com.pagamento.api.controller;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.api.awpag.domain.exception.NegocioException;
-import com.api.awpag.domain.model.Cliente;
-import com.api.awpag.domain.service.CadastroClienteService;
-import com.api.awpag.domain.repository.ClienteRepository;
+import com.pagamento.domain.model.Cliente;
+import com.pagamento.domain.service.CadastroClienteService;
+import com.pagamento.domain.repository.ClienteRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -74,10 +73,5 @@ public class ClienteController {
 
 		return ResponseEntity.noContent().build();
 	}
-//capiturando exceção
-	@ExceptionHandler(NegocioException.class)
-	public ResponseEntity<String> capturar(NegocioException e ){
-//		 pegando a messagem interna
-return ResponseEntity.badRequest().body(e.getMessage());
-	}
+
 }

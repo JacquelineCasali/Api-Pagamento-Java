@@ -1,4 +1,4 @@
-package com.api.awpag.domain.exception;
+package com.pagamento.domain.exception;
 
 public class NegocioException extends RuntimeException {
     public NegocioException(String message) {

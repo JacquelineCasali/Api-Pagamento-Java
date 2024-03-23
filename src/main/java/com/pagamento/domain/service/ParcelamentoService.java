@@ -1,11 +1,10 @@
-package com.api.awpag.domain.service;
+package com.pagamento.domain.service;
 
 
-import com.api.awpag.domain.exception.NegocioException;
-import com.api.awpag.domain.model.Cliente;
-import com.api.awpag.domain.model.Parcelamento;
-import com.api.awpag.domain.repository.ClienteRepository;
-import com.api.awpag.domain.repository.ParcelamentoRepository;
+import com.pagamento.domain.exception.NegocioException;
+import com.pagamento.domain.model.Cliente;
+import com.pagamento.domain.model.Parcelamento;
+import com.pagamento.domain.repository.ParcelamentoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,5 +29,16 @@ public class ParcelamentoService {
         novoparcelamento.setCliente(cliente);
 novoparcelamento.setDataCriacao(LocalDateTime.now());
           return parcelamentoRepository.save(novoparcelamento);
+    }
+
+    @Transactional
+    public Parcelamento editar(Parcelamento editarparcelamento) {
+        //se o cliente existe
+        Cliente cliente=cadastroClienteService.buscar(editarparcelamento.getCliente().getId());
+
+//dados do cliente preenchido
+        editarparcelamento.setCliente(cliente);
+        editarparcelamento.setDataCriacao(LocalDateTime.now());
+        return parcelamentoRepository.save(editarparcelamento);
     }
 }

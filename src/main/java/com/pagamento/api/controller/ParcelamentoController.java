@@ -1,10 +1,10 @@
-package com.api.awpag.controller;
+package com.pagamento.api.controller;
 
 
-import com.api.awpag.domain.exception.NegocioException;
-import com.api.awpag.domain.model.Parcelamento;
-import com.api.awpag.domain.repository.ParcelamentoRepository;
-import com.api.awpag.domain.service.ParcelamentoService;
+
+import com.pagamento.domain.model.Parcelamento;
+import com.pagamento.domain.repository.ParcelamentoRepository;
+import com.pagamento.domain.service.ParcelamentoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -39,15 +39,22 @@ public class ParcelamentoController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
 
-    public Parcelamento cadastrar(@RequestBody Parcelamento parcelamento) {
+    public Parcelamento cadastrar( @Valid  @RequestBody Parcelamento parcelamento) {
         return parcelamentoService.cadastrar(parcelamento);
     }
 
+    @PutMapping("/{id}")
+    // implementar metodos
+    public  ResponseEntity<Parcelamento> atualizar(@Valid @PathVariable Long id ,  @RequestBody Parcelamento parcelamento) {
+        if(!parcelamentoRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+        parcelamento.setId(id);
+        parcelamento= parcelamentoService.editar(parcelamento);
+        return ResponseEntity.ok(parcelamento);
 
-    //capiturando exceção
-    @ExceptionHandler(NegocioException.class)
-    public ResponseEntity<String> capturar(NegocioException e ){
-//		 pegando a messagem interna
-        return ResponseEntity.badRequest().body(e.getMessage());
     }
+
+
+
 }

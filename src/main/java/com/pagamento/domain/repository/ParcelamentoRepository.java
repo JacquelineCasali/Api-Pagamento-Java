@@ -1,6 +1,6 @@
-package com.api.awpag.domain.repository;
+package com.pagamento.domain.repository;
 
-import com.api.awpag.domain.model.Parcelamento;
+import com.pagamento.domain.model.Parcelamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
