@@ -1,7 +1,8 @@
 ## Projeto Api de Pagamento
 
 
-O aplicativo ou sistema web deve possuir funcionalidades que permitam o cadastro, editar , ler os itens no cardápio.
+O aplicativo ou sistema web que possui funcionalidades que permite fazer gestão de clientes e pagamentos .
+
 
 Esse projeto é o desenvolvimento da API Rest.
 

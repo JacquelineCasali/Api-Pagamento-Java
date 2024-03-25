@@ -1,5 +1,6 @@
 package com.pagamento.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pagamento.domain.validation.ValidationGrupos;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -12,6 +13,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.util.regex.Pattern;
 
 @Entity
 @Getter
@@ -47,8 +50,8 @@ public class Parcelamento {
     // quantidade de parcelas
     @Max(value = 12)
     private Integer quantidadeParcelas;
-    private LocalDateTime dataCriacao;
-
+    // coloca o fuso horario
+    private OffsetDateTime dataCriacao;
 
 
 }

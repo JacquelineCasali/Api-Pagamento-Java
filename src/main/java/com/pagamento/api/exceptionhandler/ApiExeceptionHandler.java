@@ -56,7 +56,7 @@ return problemDetail;
     @ExceptionHandler(DataIntegrityViolationException.class)
 public ProblemDetail handlData(DataIntegrityViolationException e){
         ProblemDetail problemDetail=ProblemDetail.forStatus(HttpStatus.CONFLICT);
-problemDetail.setTitle("Codigo em uso");
+problemDetail.setTitle("Esse Cliente não pode ser cancelado pois tem parcelamanto cadastrado");
 problemDetail.setType(URI.create("https://pagamento/erros/recurso-em-uso"));
 
         return problemDetail;
